@@ -115,9 +115,8 @@ export class SuffixTree {
       return [s, k];
     }
   }
-
-
-  findLongestRepeatedSubstrings(n=3) {
+  
+  findLongestRepeatedSubstrings(n) {
     var [text, root] = [this.text, this.root];
     var longestSubstrings = [];
 
@@ -137,6 +136,7 @@ export class SuffixTree {
       }
     })(root);
 
+    n = n || longestSubstrings.length;
     return longestSubstrings.sort((a, b) => b.length - a.length).slice(0, n);
   }
 
